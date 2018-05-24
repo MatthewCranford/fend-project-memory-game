@@ -40,10 +40,41 @@ function shuffle(array) {
 let selectedCards = [];
 
 document.querySelector('.deck').addEventListener('click', function(event) {
-  if (event.target.classList.contains('card')) {
-    event.target.classList.toggle('open');
-    event.target.classList.toggle('show');
-    selectedCards.push(event.target);
-    console.log('selectedCards:', selectedCards);
+  if (selectedCards.length !== 2) {
+    if (
+      event.target.classList.contains('card') &&
+      selectedCards.length !== 2 &&
+      !selectedCards.includes(event.target)
+    ) {
+      event.target.classList.toggle('open');
+      event.target.classList.toggle('show');
+      selectedCards.push(event.target);
+      console.log('selectedCards:', selectedCards);
+    }
+
+    if (selectedCards.length === 2) {
+      checkMatch();
+    }
   }
 });
+
+function checkMatch() {
+  if (
+    selectedCards[0].firstElementChild.className ===
+    selectedCards[1].firstElementChild.className
+  ) {
+    console.log('match!');
+    selectedCards[0].classList.toggle('match');
+    selectedCards[1].classList.toggle('match');
+    selectedCards = [];
+  } else {
+    console.log('better luck next time!');
+    setTimeout(function() {
+      selectedCards[0].classList.toggle('open');
+      selectedCards[0].classList.toggle('show');
+      selectedCards[1].classList.toggle('open');
+      selectedCards[1].classList.toggle('show');
+      selectedCards = [];
+    }, 1000);
+  }
+}
