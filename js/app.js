@@ -38,6 +38,7 @@ function shuffle(array) {
  */
 
 let selectedCards = [];
+let moves = 0;
 
 document.querySelector('.deck').addEventListener('click', function(event) {
   if (selectedCards.length !== 2) {
@@ -54,9 +55,18 @@ document.querySelector('.deck').addEventListener('click', function(event) {
 
     if (selectedCards.length === 2) {
       checkMatch();
+
+      updateMoves();
     }
   }
 });
+
+function updateMoves() {
+  moves++;
+  console.log(moves);
+  console.log(document.querySelector('.moves'));
+  document.querySelector('.moves').textContent = moves;
+}
 
 function checkMatch() {
   if (
