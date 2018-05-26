@@ -80,7 +80,7 @@ function removeStars(numStars) {
   const stars = document.querySelectorAll('ul.stars li');
   for (let star = 0; star < numStars; star++) {
     stars[star].style.display = 'none';
-}
+  }
 }
 
 function checkMatch() {
@@ -99,5 +99,35 @@ function checkMatch() {
       selectedCards[1].classList.toggle('show');
       selectedCards = [];
     }, 1000);
+  }
+}
+
+document.querySelector('.restart').addEventListener('click', () => {
+  resetGame();
+});
+
+function resetGame() {
+  resetCards();
+  resetMoves();
+  resetStars();
+}
+
+function resetCards() {
+  selectedCards = [];
+  const cards = document.querySelectorAll('.deck li');
+  cards.forEach(card => {
+    card.classList = 'card';
+  });
+}
+
+function resetMoves() {
+  moves = 0;
+  document.querySelector('.moves').textContent = moves;
+}
+
+function resetStars() {
+  const stars = document.querySelectorAll('ul.stars li');
+  for (let star of stars) {
+    star.style.display = 'inline';
   }
 }
