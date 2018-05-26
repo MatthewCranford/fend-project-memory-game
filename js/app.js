@@ -50,7 +50,6 @@ document.querySelector('.deck').addEventListener('click', function(event) {
       event.target.classList.toggle('open');
       event.target.classList.toggle('show');
       selectedCards.push(event.target);
-      console.log('selectedCards:', selectedCards);
     }
 
     if (selectedCards.length === 2) {
@@ -62,8 +61,6 @@ document.querySelector('.deck').addEventListener('click', function(event) {
 
 function updateMoves() {
   moves++;
-  console.log(moves);
-  console.log(document.querySelector('.moves'));
   document.querySelector('.moves').textContent = moves;
   const twoStar = 16;
   const oneStar = 24;
@@ -83,12 +80,10 @@ function checkMatch() {
     selectedCards[0].firstElementChild.className ===
     selectedCards[1].firstElementChild.className
   ) {
-    console.log('match!');
     selectedCards[0].classList.toggle('match');
     selectedCards[1].classList.toggle('match');
     selectedCards = [];
   } else {
-    console.log('better luck next time!');
     setTimeout(function() {
       selectedCards[0].classList.toggle('open');
       selectedCards[0].classList.toggle('show');
