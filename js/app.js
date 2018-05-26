@@ -55,7 +55,6 @@ document.querySelector('.deck').addEventListener('click', function(event) {
 
     if (selectedCards.length === 2) {
       checkMatch();
-
       updateMoves();
     }
   }
@@ -66,6 +65,17 @@ function updateMoves() {
   console.log(moves);
   console.log(document.querySelector('.moves'));
   document.querySelector('.moves').textContent = moves;
+  const twoStar = 16;
+  const oneStar = 24;
+
+  if (moves === twoStar || moves === oneStar) {
+    removeStar();
+  }
+}
+
+function removeStar() {
+  const stars = document.querySelector('ul.stars');
+  stars.removeChild(stars.children[0]);
 }
 
 function checkMatch() {
