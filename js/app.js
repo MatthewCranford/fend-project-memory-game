@@ -62,17 +62,25 @@ document.querySelector('.deck').addEventListener('click', function(event) {
 function updateMoves() {
   moves++;
   document.querySelector('.moves').textContent = moves;
-  const twoStar = 16;
-  const oneStar = 24;
+  updateStars()
+}
 
-  if (moves === twoStar || moves === oneStar) {
-    removeStar();
+function updateStars() {
+  const twoStarScore = 16;
+  const oneStarScore = 24;
+
+  if (moves === twoStarScore) {
+    removeStars(1);
+  } else if (moves === oneStarScore) {
+    removeStars(2);
   }
 }
 
-function removeStar() {
-  const stars = document.querySelector('ul.stars');
-  stars.removeChild(stars.children[0]);
+function removeStars(numStars) {
+  const stars = document.querySelectorAll('ul.stars li');
+  for (let star = 0; star < numStars; star++) {
+    stars[star].style.display = 'none';
+}
 }
 
 function checkMatch() {
