@@ -116,13 +116,7 @@ function checkMatch() {
   ) {
     showMatch();
   } else {
-    setTimeout(function() {
-      openCards[0].classList.toggle('open');
-      openCards[0].classList.toggle('show');
-      openCards[1].classList.toggle('open');
-      openCards[1].classList.toggle('show');
-      openCards = [];
-    }, 1000);
+    resetOpenCards();
   }
 }
 
@@ -130,6 +124,16 @@ function showMatch() {
   openCards[0].classList.toggle('match');
   openCards[1].classList.toggle('match');
   setTimeout(function() {
+    openCards = [];
+  }, 1000);
+}
+
+function resetOpenCards() {
+  setTimeout(function() {
+    openCards[0].classList.toggle('open');
+    openCards[0].classList.toggle('show');
+    openCards[1].classList.toggle('open');
+    openCards[1].classList.toggle('show');
     openCards = [];
   }, 1000);
 }
