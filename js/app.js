@@ -83,6 +83,10 @@ let selectedCards = [];
 let moves = 0;
 
 document.querySelector('.deck').addEventListener('click', function(event) {
+  checkCard();
+});
+
+function checkCard() {
   if (selectedCards.length !== 2) {
     if (
       event.target.classList.contains('card') &&
@@ -99,7 +103,28 @@ document.querySelector('.deck').addEventListener('click', function(event) {
       updateMoves();
     }
   }
-});
+}
+
+function checkMatch() {
+  if (
+    selectedCards[0].firstElementChild.className ===
+    selectedCards[1].firstElementChild.className
+  ) {
+    selectedCards[0].classList.toggle('match');
+    selectedCards[1].classList.toggle('match');
+    setTimeout(function() {
+      selectedCards = [];
+    }, 1000);
+  } else {
+    setTimeout(function() {
+      selectedCards[0].classList.toggle('open');
+      selectedCards[0].classList.toggle('show');
+      selectedCards[1].classList.toggle('open');
+      selectedCards[1].classList.toggle('show');
+      selectedCards = [];
+    }, 1000);
+  }
+}
 
 function updateMoves() {
   moves++;
