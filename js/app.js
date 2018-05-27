@@ -28,9 +28,13 @@ const cards = [
  *   - add each card's HTML to the page
  */
 
+function initGame() {
+  generateNewDeck();
+}
+initGame();
+
 function generateNewDeck() {
   const shuffledCards = shuffle(cards);
-  console.log(shuffledCards);
   const deck = document.querySelector('.deck');
 
   deck.innerHTML = shuffledCards
@@ -39,7 +43,6 @@ function generateNewDeck() {
     })
     .join('');
 }
-generateNewDeck();
 
 function generateCardHTML(card) {
   const cardHTML = `<li class="card">
