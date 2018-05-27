@@ -21,28 +21,32 @@ const cards = [
   'fa-bomb'
 ];
 
-const shuffledCards = shuffle(cards);
-console.log(shuffledCards);
-
-document.querySelector('.deck').innerHTML = shuffledCards
-  .map(card => {
-    return generateCard(card);
-  })
-  .join('');
-
-function generateCard(card) {
-  const newCard = `<li class="card">
-  <i class="fa ${card}"></i>
-</li>`;
-  return newCard;
-}
-
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+function generateNewDeck() {
+  const shuffledCards = shuffle(cards);
+  console.log(shuffledCards);
+  const deck = document.querySelector('.deck');
+
+  deck.innerHTML = shuffledCards
+    .map(card => {
+      return generateCardHTML(card);
+    })
+    .join('');
+}
+generateNewDeck();
+
+function generateCardHTML(card) {
+  const cardHTML = `<li class="card">
+  <i class="fa ${card}"></i>
+</li>`;
+  return cardHTML;
+}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
