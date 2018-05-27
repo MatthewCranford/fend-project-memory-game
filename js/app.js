@@ -114,11 +114,7 @@ function checkMatch() {
     openCards[0].firstElementChild.className ===
     openCards[1].firstElementChild.className
   ) {
-    openCards[0].classList.toggle('match');
-    openCards[1].classList.toggle('match');
-    setTimeout(function() {
-      openCards = [];
-    }, 1000);
+    showMatch();
   } else {
     setTimeout(function() {
       openCards[0].classList.toggle('open');
@@ -128,6 +124,14 @@ function checkMatch() {
       openCards = [];
     }, 1000);
   }
+}
+
+function showMatch() {
+  openCards[0].classList.toggle('match');
+  openCards[1].classList.toggle('match');
+  setTimeout(function() {
+    openCards = [];
+  }, 1000);
 }
 
 function updateMoves() {
