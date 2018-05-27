@@ -79,7 +79,7 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-let selectedCards = [];
+let openCards = [];
 let moves = 0;
 
 document.querySelector('.deck').addEventListener('click', function(event) {
@@ -87,18 +87,18 @@ document.querySelector('.deck').addEventListener('click', function(event) {
 });
 
 function checkCard() {
-  if (selectedCards.length !== 2) {
+  if (openCards.length !== 2) {
     if (
       event.target.classList.contains('card') &&
-      selectedCards.length !== 2 &&
-      !selectedCards.includes(event.target)
+      openCards.length !== 2 &&
+      !openCards.includes(event.target)
     ) {
       event.target.classList.toggle('open');
       event.target.classList.toggle('show');
-      selectedCards.push(event.target);
+      openCards.push(event.target);
     }
 
-    if (selectedCards.length === 2) {
+    if (openCards.length === 2) {
       checkMatch();
       updateMoves();
     }
@@ -107,21 +107,21 @@ function checkCard() {
 
 function checkMatch() {
   if (
-    selectedCards[0].firstElementChild.className ===
-    selectedCards[1].firstElementChild.className
+    openCards[0].firstElementChild.className ===
+    openCards[1].firstElementChild.className
   ) {
-    selectedCards[0].classList.toggle('match');
-    selectedCards[1].classList.toggle('match');
+    openCards[0].classList.toggle('match');
+    openCards[1].classList.toggle('match');
     setTimeout(function() {
-      selectedCards = [];
+      openCards = [];
     }, 1000);
   } else {
     setTimeout(function() {
-      selectedCards[0].classList.toggle('open');
-      selectedCards[0].classList.toggle('show');
-      selectedCards[1].classList.toggle('open');
-      selectedCards[1].classList.toggle('show');
-      selectedCards = [];
+      openCards[0].classList.toggle('open');
+      openCards[0].classList.toggle('show');
+      openCards[1].classList.toggle('open');
+      openCards[1].classList.toggle('show');
+      openCards = [];
     }, 1000);
   }
 }
@@ -162,7 +162,7 @@ function resetGame() {
 }
 
 function resetCards() {
-  selectedCards = [];
+  openCards = [];
   const cards = document.querySelectorAll('.deck li');
   cards.forEach(card => {
     card.classList = 'card';
