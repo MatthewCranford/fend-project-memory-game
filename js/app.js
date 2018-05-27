@@ -111,9 +111,9 @@ function updateStars() {
   }
 }
 
-function removeStars(numStars) {
+function removeStars(numStarsToRemove) {
   const stars = document.querySelectorAll('ul.stars li');
-  for (let star = 0; star < numStars; star++) {
+  for (let star = 0; star < numStarsToRemove; star++) {
     stars[star].style.display = 'none';
   }
 }
