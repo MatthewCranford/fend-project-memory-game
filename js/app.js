@@ -121,8 +121,9 @@ function checkMatch() {
 }
 
 function showMatch() {
-  openCards[0].classList.toggle('match');
-  openCards[1].classList.toggle('match');
+  for (let openCard of openCards) {
+    openCard.classList.toggle('match');
+  }
   setTimeout(function() {
     openCards = [];
   }, 1000);
