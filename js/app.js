@@ -82,7 +82,7 @@ function shuffle(array) {
 let openCards = [];
 let moves = 0;
 
-document.querySelector('.deck').addEventListener('click', function(event) {
+document.querySelector('.deck').addEventListener('click', () => {
   checkCard();
 });
 
@@ -93,9 +93,7 @@ function checkCard() {
       openCards.length !== 2 &&
       !openCards.includes(event.target)
     ) {
-      event.target.classList.toggle('open');
-      event.target.classList.toggle('show');
-      openCards.push(event.target);
+      addOpenCard();
     }
 
     if (openCards.length === 2) {
@@ -103,6 +101,12 @@ function checkCard() {
       updateMoves();
     }
   }
+}
+
+function addOpenCard() {
+  event.target.classList.toggle('open');
+  event.target.classList.toggle('show');
+  openCards.push(event.target);
 }
 
 function checkMatch() {
