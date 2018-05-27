@@ -130,10 +130,10 @@ function showMatch() {
 
 function resetOpenCards() {
   setTimeout(function() {
-    openCards[0].classList.toggle('open');
-    openCards[0].classList.toggle('show');
-    openCards[1].classList.toggle('open');
-    openCards[1].classList.toggle('show');
+    for (let openCard of openCards) {
+      openCard.classList.toggle('open');
+      openCard.classList.toggle('show');
+    }
     openCards = [];
   }, 1000);
 }
