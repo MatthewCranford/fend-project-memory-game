@@ -150,29 +150,9 @@ function removeStars(numStarsToRemove) {
   }
 }
 
-function checkMatch() {
-  if (
-    selectedCards[0].firstElementChild.className ===
-    selectedCards[1].firstElementChild.className
-  ) {
-    selectedCards[0].classList.toggle('match');
-    selectedCards[1].classList.toggle('match');
-    setTimeout(function() {
-      selectedCards = [];
-    }, 1000);
-  } else {
-    setTimeout(function() {
-      selectedCards[0].classList.toggle('open');
-      selectedCards[0].classList.toggle('show');
-      selectedCards[1].classList.toggle('open');
-      selectedCards[1].classList.toggle('show');
-      selectedCards = [];
-    }, 1000);
-  }
-}
-
 document.querySelector('.restart').addEventListener('click', () => {
   resetGame();
+  initGame();
 });
 
 function resetGame() {
