@@ -87,16 +87,17 @@ document.querySelector('.deck').addEventListener('click', () => {
 });
 
 function checkCard() {
-  if (openCards.length !== 2) {
+  const maxOpenCards = 2;
+  if (openCards.length !== maxOpenCards) {
     if (
       event.target.classList.contains('card') &&
-      openCards.length !== 2 &&
+      openCards.length !== maxOpenCards &&
       !openCards.includes(event.target)
     ) {
       addOpenCard();
     }
 
-    if (openCards.length === 2) {
+    if (openCards.length === maxOpenCards) {
       checkMatch();
       updateMoves();
     }
