@@ -125,7 +125,9 @@ function checkMatch() {
   ) {
     selectedCards[0].classList.toggle('match');
     selectedCards[1].classList.toggle('match');
-    selectedCards = [];
+    setTimeout(function() {
+      selectedCards = [];
+    }, 1000);
   } else {
     setTimeout(function() {
       selectedCards[0].classList.toggle('open');
