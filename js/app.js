@@ -194,3 +194,9 @@ function resetStars() {
     star.style.display = 'inline';
   }
 }
+
+function toggleModal() {
+  document
+    .querySelector('.modal__shadow')
+    .classList.toggle('modal__shadow--hide');
+}
