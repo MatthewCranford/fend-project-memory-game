@@ -81,6 +81,7 @@ function shuffle(array) {
 
 let openCards = [];
 let moves = 0;
+let totalMatched = 0;
 
 document.querySelector('.deck').addEventListener('click', () => {
   checkCard();
@@ -115,13 +116,14 @@ function checkMatch() {
     openCards[0].firstElementChild.className ===
     openCards[1].firstElementChild.className
   ) {
-    showMatch();
+    addMatch();
   } else {
     resetOpenCards();
   }
 }
 
-function showMatch() {
+function addMatch() {
+  totalMatched++;
   for (let openCard of openCards) {
     openCard.classList.toggle('match');
   }
