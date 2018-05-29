@@ -82,6 +82,7 @@ function shuffle(array) {
 
 let openCards = [];
 let moves = 0;
+let stars = 3;
 let matchedCards = 0;
 
 document.querySelector('.deck').addEventListener('click', () => {
@@ -163,17 +164,17 @@ function updateStars() {
   const twoStarScore = 16;
   const oneStarScore = 24;
 
-  if (moves === twoStarScore) {
-    removeStars(1);
-  } else if (moves === oneStarScore) {
-    removeStars(2);
+  if (moves === twoStarScore || moves === oneStarScore) {
+    stars--;
+    removeStars();
   }
 }
 
-function removeStars(numStarsToRemove) {
-  const stars = document.querySelectorAll('ul.stars li');
-  for (let star = 0; star < numStarsToRemove; star++) {
-    stars[star].style.display = 'none';
+function removeStars() {
+  const starsList = document.querySelectorAll('ul.stars li');
+
+  for (let star = 0; star < 3 - stars; star++) {
+    starsList[star].style.display = 'none';
   }
 }
 
