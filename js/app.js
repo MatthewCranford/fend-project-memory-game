@@ -35,6 +35,7 @@ initGame();
 
 function generateNewDeck() {
   const shuffledCards = shuffle(cards);
+  console.log(shuffledCards);
   const deck = document.querySelector('.deck');
 
   deck.innerHTML = shuffledCards
@@ -81,7 +82,7 @@ function shuffle(array) {
 
 let openCards = [];
 let moves = 0;
-let totalMatched = 0;
+let matchedCards = 0;
 
 document.querySelector('.deck').addEventListener('click', () => {
   checkCard();
@@ -123,13 +124,23 @@ function checkMatch() {
 }
 
 function addMatch() {
-  totalMatched++;
+  const totalMatches = 8;
+  matchedCards++;
+
   for (let openCard of openCards) {
     openCard.classList.toggle('match');
   }
-  setTimeout(function() {
-    openCards = [];
-  }, 1000);
+  if (matchedCards === totalMatches) {
+    gameOver();
+  } else {
+    setTimeout(function() {
+      openCards = [];
+    }, 1000);
+  }
+}
+
+function gameOver() {
+  toggleModal();
 }
 
 function resetOpenCards() {
