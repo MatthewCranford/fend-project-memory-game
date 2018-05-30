@@ -141,7 +141,22 @@ function addMatch() {
 }
 
 function gameOver() {
+  updateModalInfo();
   toggleModal();
+}
+
+function updateModalInfo() {
+  const starScore = document.getElementById('starScore');
+  const totalMoves = document.getElementById('totalMoves');
+
+  starScore.innerText = starScore.innerText.concat(` ${stars}`);
+  totalMoves.innerText = totalMoves.innerText.concat(` ${moves}`);
+}
+
+function toggleModal() {
+  document
+    .querySelector('.modal__shadow')
+    .classList.toggle('modal__shadow--hide');
 }
 
 function resetOpenCards() {
@@ -207,10 +222,4 @@ function resetStars() {
   for (let star of stars) {
     star.style.display = 'inline';
   }
-}
-
-function toggleModal() {
-  document
-    .querySelector('.modal__shadow')
-    .classList.toggle('modal__shadow--hide');
 }
