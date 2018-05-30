@@ -84,10 +84,39 @@ let openCards = [];
 let moves = 0;
 let stars = 3;
 let matchedCards = 0;
+let timerStarted = false;
+let timerID;
+let timeInSeconds = 0;
 
 document.querySelector('.deck').addEventListener('click', () => {
+  if (!timerStarted) {
+    timerStarted = true;
+    startTimer();
+  }
   checkCard();
 });
+
+function startTimer() {
+  function timer() {
+    timeInSeconds++;
+    displayTime();
+    timerID = setTimeout(timer, 1000);
+  }
+  setTimeout(timer);
+}
+
+function displayTime() {
+  const clock = document.querySelector('.clock');
+  const seconds =
+    timeInSeconds % 60 < 10 ? '0' + timeInSeconds % 60 : timeInSeconds % 60;
+  const minutes = Math.floor(timeInSeconds / 60);
+  clock.textContent = `${minutes}:${seconds}`;
+}
+
+function resetClock() {
+  const clock = document.querySelector('.clock');
+  clock.textContent = '0:00';
+}
 
 function checkCard() {
   const maxOpenCards = 2;
@@ -202,6 +231,10 @@ function resetGame() {
   resetCards();
   resetMoves();
   resetStars();
+  clearTimeout(timerID);
+  resetClock();
+  timeInSeconds = 0;
+  timerStarted = false;
 }
 
 function resetCards() {
