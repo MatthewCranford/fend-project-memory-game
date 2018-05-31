@@ -181,14 +181,10 @@ function updateModalInfo() {
   const starScore = document.getElementById('starScore');
   const totalMoves = document.getElementById('totalMoves');
 
-  timeElapsed.innerText = timeElapsed.innerText.concat(
-    ` ${minutes}:${seconds}`
-  );
-  starScore.innerText = starScore.innerText.concat(` ${stars}`);
-  totalMoves.innerText = totalMoves.innerText.concat(` ${moves}`);
+  timeElapsed.innerText = `Time elapsed = ${minutes}:${seconds}`;
+  starScore.innerText = `Star score = ${stars}`;
+  totalMoves.innerText = `Total moves = ${moves}`;
 }
-
-gameOver();
 
 function toggleModal() {
   document
