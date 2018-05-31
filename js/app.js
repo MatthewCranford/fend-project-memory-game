@@ -21,6 +21,16 @@ const cards = [
   'fa-bomb'
 ];
 
+let openCards = [];
+let moves = 0;
+let stars = 3;
+let matchedCards = 0;
+let timerNotStarted = true;
+let timerID;
+let timeInSeconds = 0;
+let minutes = '0';
+let seconds = '00';
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -54,7 +64,7 @@ function generateCardHTML(card) {
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
-  var currentIndex = array.length,
+  let currentIndex = array.length,
     temporaryValue,
     randomIndex;
 
@@ -80,19 +90,9 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-let openCards = [];
-let moves = 0;
-let stars = 3;
-let matchedCards = 0;
-let timerStarted = false;
-let timerID;
-let timeInSeconds = 0;
-let minutes = '0';
-let seconds = '00';
-
 document.querySelector('.deck').addEventListener('click', () => {
-  if (!timerStarted) {
-    timerStarted = true;
+  if (timerNotStarted) {
+    timerNotStarted = false;
     startTimer();
   }
   checkCard();
@@ -109,29 +109,26 @@ function startTimer() {
 
 function displayTime() {
   const clock = document.querySelector('.clock');
-  seconds =
-    timeInSeconds % 60 < 10 ? '0' + timeInSeconds % 60 : timeInSeconds % 60;
-  minutes = Math.floor(timeInSeconds / 60);
+  seconds = (timeInSeconds % 60 < 10
+    ? '0' + timeInSeconds % 60
+    : timeInSeconds % 60
+  ).toString();
+  minutes = Math.floor(timeInSeconds / 60).toString();
   clock.textContent = `${minutes}:${seconds}`;
 }
 
-function resetClock() {
-  const clock = document.querySelector('.clock');
-  clock.textContent = '0:00';
-}
-
 function checkCard() {
-  const maxOpenCards = 2;
-  if (openCards.length !== maxOpenCards) {
+  const MAX_OPEN_CARDS = 2;
+
+  // Prevent cards being checked while timeout in progress
+  if (openCards.length !== MAX_OPEN_CARDS) {
     if (
       event.target.classList.contains('card') &&
-      openCards.length !== maxOpenCards &&
       !openCards.includes(event.target)
     ) {
       addOpenCard();
     }
-
-    if (openCards.length === maxOpenCards) {
+    if (openCards.length === MAX_OPEN_CARDS) {
       checkMatch();
       updateMoves();
     }
@@ -156,13 +153,13 @@ function checkMatch() {
 }
 
 function addMatch() {
-  const totalMatches = 8;
+  const TOTAL_MATCHES = 8;
   matchedCards++;
 
   for (let openCard of openCards) {
     openCard.classList.toggle('match');
   }
-  if (matchedCards === totalMatches) {
+  if (matchedCards === TOTAL_MATCHES) {
     gameOver();
   } else {
     setTimeout(function() {
@@ -172,11 +169,11 @@ function addMatch() {
 }
 
 function gameOver() {
-  updateModalInfo();
+  updateModalText();
   toggleModal();
 }
 
-function updateModalInfo() {
+function updateModalText() {
   const timeElapsed = document.getElementById('timeElapsed');
   const starScore = document.getElementById('starScore');
   const totalMoves = document.getElementById('totalMoves');
@@ -193,7 +190,7 @@ function toggleModal() {
 }
 
 function resetOpenCards() {
-  setTimeout(function() {
+  setTimeout(() => {
     for (let openCard of openCards) {
       openCard.classList.toggle('open');
       openCard.classList.toggle('show');
@@ -245,15 +242,16 @@ function resetGame() {
   clearTimeout(timerID);
   resetClock();
   timeInSeconds = 0;
-  timerStarted = false;
+  timerNotStarted = false;
 }
 
 function resetCards() {
   openCards = [];
   const cards = document.querySelectorAll('.deck li');
-  cards.forEach(card => {
+
+  for (card of cards) {
     card.classList = 'card';
-  });
+  }
 }
 
 function resetMoves() {
@@ -266,6 +264,11 @@ function resetStars() {
   for (let star of stars) {
     star.style.display = 'inline';
   }
+}
+
+function resetClock() {
+  const clock = document.querySelector('.clock');
+  clock.textContent = '0:00';
 }
 
 document.getElementById('modal__exit').addEventListener('click', toggleModal);
