@@ -87,6 +87,8 @@ let matchedCards = 0;
 let timerStarted = false;
 let timerID;
 let timeInSeconds = 0;
+let minutes = '0';
+let seconds = '00';
 
 document.querySelector('.deck').addEventListener('click', () => {
   if (!timerStarted) {
@@ -107,9 +109,9 @@ function startTimer() {
 
 function displayTime() {
   const clock = document.querySelector('.clock');
-  const seconds =
+  seconds =
     timeInSeconds % 60 < 10 ? '0' + timeInSeconds % 60 : timeInSeconds % 60;
-  const minutes = Math.floor(timeInSeconds / 60);
+  minutes = Math.floor(timeInSeconds / 60);
   clock.textContent = `${minutes}:${seconds}`;
 }
 
@@ -175,12 +177,18 @@ function gameOver() {
 }
 
 function updateModalInfo() {
+  const timeElapsed = document.getElementById('timeElapsed');
   const starScore = document.getElementById('starScore');
   const totalMoves = document.getElementById('totalMoves');
 
+  timeElapsed.innerText = timeElapsed.innerText.concat(
+    ` ${minutes}:${seconds}`
+  );
   starScore.innerText = starScore.innerText.concat(` ${stars}`);
   totalMoves.innerText = totalMoves.innerText.concat(` ${moves}`);
 }
+
+gameOver();
 
 function toggleModal() {
   document
