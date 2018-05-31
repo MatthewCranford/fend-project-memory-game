@@ -236,6 +236,13 @@ document.querySelector('.restart').addEventListener('click', () => {
 });
 
 function resetGame() {
+  if (
+    !document
+      .querySelector('.modal__shadow')
+      .classList.contains('modal__shadow--hide')
+  ) {
+    toggleModal();
+  }
   resetCards();
   resetMoves();
   resetStars();
@@ -264,3 +271,7 @@ function resetStars() {
     star.style.display = 'inline';
   }
 }
+
+document.getElementById('modal__exit').addEventListener('click', toggleModal);
+document.getElementById('modal__close').addEventListener('click', toggleModal);
+document.getElementById('modal__replay').addEventListener('click', resetGame);
