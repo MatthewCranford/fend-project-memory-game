@@ -225,10 +225,7 @@ function hideStars() {
   }
 }
 
-document.querySelector('.restart').addEventListener('click', () => {
-  resetGame();
-  initGame();
-});
+document.querySelector('.restart').addEventListener('click', resetGame);
 
 function resetGame() {
   if (
@@ -242,6 +239,7 @@ function resetGame() {
   resetMoves();
   resetStars();
   resetTime();
+  initGame();
 }
 
 function resetCards() {
