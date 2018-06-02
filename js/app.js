@@ -262,8 +262,9 @@ function resetMoves() {
 }
 
 function resetStars() {
-  const stars = document.querySelectorAll('ul.stars li');
-  for (let star of stars) {
+  stars = 3;
+  const starsList = document.querySelectorAll('ul.stars li');
+  for (let star of starsList) {
     star.style.display = 'inline';
   }
 }
