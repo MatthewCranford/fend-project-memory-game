@@ -249,6 +249,7 @@ function resetGame() {
 
 function resetCards() {
   openCards = [];
+  matchedCards = 0;
   const cards = document.querySelectorAll('.deck li');
 
   for (card of cards) {
