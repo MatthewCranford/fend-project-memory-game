@@ -217,6 +217,8 @@ function updateStars() {
 
 function removeStars() {
   const starsList = document.querySelectorAll('ul.stars li');
+  console.log(starsList);
+  console.log(stars);
 
   for (let star = 0; star < 3 - stars; star++) {
     starsList[star].style.display = 'none';
