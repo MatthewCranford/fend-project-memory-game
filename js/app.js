@@ -266,7 +266,7 @@ function resetStars() {
 
 function resetTime() {
   clearTimeout(timerID);
-  timerNotStarted = false;
+  timerNotStarted = true;
   timeInSeconds = 0;
   const clock = document.querySelector('.clock');
   clock.textContent = '0:00';
