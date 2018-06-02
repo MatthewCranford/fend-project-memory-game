@@ -1,20 +1,48 @@
 # Memory Game Project
 
+Project 2 of Udacity's Front-End Nanodegree. A memory game based on Concentration.
+
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Installation](#installation)
+* [How To Play](#how-to-play)
+* [Features](#features)
+* [Built With](#built-with)
+* [Acknowledgments](#acknowledgments)
 
-## Instructions
+## Installation
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Download/clone to computer, open with favorite text editor, and play.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## How To Play
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+The goal is to match all 8 pairs of cards together as quickly and accurately as possible. The game begins when a card is clicked. Once all pairs are turned over, the game ends, displaying your score.
 
-## Contributing
+## Features
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+* Memory Game Logic
+* Congratulations Popup
+* Restart Button
+* Star Rating
+* Timer
+* Move Counter
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+## Built With
+
+Languages:
+
+* HTML
+* CSS
+* JS
+
+Frameworks/Libraries/APIs:
+
+* [Font Awesome](https://fontawesome.com/) - Font and icon toolkit
+* [Google Fonts](https://fonts.google.com/) - Font library
+
+## Acknowledgments
+
+* Udacity community managers
+* Project coaches
+* My mentor Jonathan
+* Coffee & music
