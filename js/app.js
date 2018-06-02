@@ -129,8 +129,8 @@ function checkCard() {
       addOpenCard();
     }
     if (openCards.length === MAX_OPEN_CARDS) {
-      checkMatch();
       updateMoves();
+      checkMatch();
     }
   }
 }
