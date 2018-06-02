@@ -241,17 +241,13 @@ function resetGame() {
   resetCards();
   resetMoves();
   resetStars();
-  clearTimeout(timerID);
-  resetClock();
-  timeInSeconds = 0;
-  timerNotStarted = false;
+  resetTime();
 }
 
 function resetCards() {
   openCards = [];
   matchedCards = 0;
   const cards = document.querySelectorAll('.deck li');
-
   for (card of cards) {
     card.classList = 'card';
   }
@@ -270,7 +266,10 @@ function resetStars() {
   }
 }
 
-function resetClock() {
+function resetTime() {
+  clearTimeout(timerID);
+  timerNotStarted = false;
+  timeInSeconds = 0;
   const clock = document.querySelector('.clock');
   clock.textContent = '0:00';
 }
