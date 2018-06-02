@@ -211,16 +211,16 @@ function updateStars() {
 
   if (moves === twoStarScore || moves === oneStarScore) {
     stars--;
-    removeStars();
+    hideStars();
   }
 }
 
-function removeStars() {
+function hideStars() {
   const starsList = document.querySelectorAll('ul.stars li');
-  console.log(starsList);
-  console.log(stars);
+  const TOTAL_STARS = 3;
+  const starsToHide = TOTAL_STARS - stars;
 
-  for (let star = 0; star < 3 - stars; star++) {
+  for (let star = 0; star < starsToHide; star++) {
     starsList[star].style.display = 'none';
   }
 }
