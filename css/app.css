@@ -116,6 +116,12 @@ h1 {
   text-align: left;
   width: 345px;
   margin-bottom: 10px;
+  display: flex;
+}
+
+.score-panel .clock {
+  font-size: 1.5rem;
+  width: 70px;
 }
 
 .score-panel .stars {
@@ -123,6 +129,7 @@ h1 {
   padding: 0;
   display: inline-block;
   margin: 0 5px 0 0;
+  font-size: 1.5rem;
 }
 
 .score-panel .stars li {
@@ -130,13 +137,15 @@ h1 {
   display: inline-block;
 }
 
-.score-panel .restart {
-  float: right;
-  cursor: pointer;
+.score-panel .moves {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
 }
 
-.score-panel .clock {
-  margin-right: 1rem;
+.score-panel .restart {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 /*
@@ -226,28 +235,6 @@ h1 {
   background-color: #30867f;
 }
 
-/* Medium screens */
-@media screen and (max-width: 768px) {
-  .restart {
-    font-size: 1.8rem;
-    margin-left: auto;
-  }
-
-  .clock {
-    font-size: 1.5rem;
-    width: 50px;
-  }
-
-  .stars {
-    font-size: 1.2rem;
-  }
-
-  .moves {
-    font-size: 1.5rem;
-    margin-left: 0.5rem;
-  }
-}
-
 /* Small screens */
 @media screen and (max-width: 600px) {
   .deck {
@@ -263,28 +250,13 @@ h1 {
   }
 
   .score-panel {
-    display: flex;
-    align-items: center;
-    padding: 0 0.8rem;
     width: 300px;
   }
 
-  .restart {
+  .score-panel .clock,
+  .score-panel .stars,
+  .score-panel .moves,
+  .score-panel .restart {
     font-size: 1.2rem;
-    margin-left: auto;
-  }
-
-  .clock {
-    font-size: 1.2rem;
-    width: 50px;
-  }
-
-  .stars {
-    font-size: 1.2rem;
-  }
-
-  .moves {
-    font-size: 1.2rem;
-    margin-left: 0.5rem;
   }
 }
