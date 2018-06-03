@@ -120,7 +120,7 @@ h1 {
 }
 
 .score-panel .clock {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   width: 70px;
 }
 
@@ -129,7 +129,7 @@ h1 {
   padding: 0;
   display: inline-block;
   margin: 0 5px 0 0;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .score-panel .stars li {
@@ -138,14 +138,14 @@ h1 {
 }
 
 .score-panel .moves {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-left: 0.5rem;
 }
 
 .score-panel .restart {
   margin-left: auto;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 /*
