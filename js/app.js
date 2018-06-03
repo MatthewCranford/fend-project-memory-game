@@ -119,11 +119,8 @@ function checkCard(eventTarget) {
 
   // Prevent cards being checked while timeout in progress
   if (openCards.length !== MAX_OPEN_CARDS) {
-    if (
-      event.target.classList.contains('card') &&
-      !openCards.includes(event.target)
-    ) {
-      addOpenCard();
+    if (isUniqueCard(eventTarget)) {
+      addOpenCard(eventTarget);
     }
     if (openCards.length === MAX_OPEN_CARDS) {
       updateMoves();
@@ -132,10 +129,16 @@ function checkCard(eventTarget) {
   }
 }
 
-function addOpenCard() {
-  event.target.classList.toggle('open');
-  event.target.classList.toggle('show');
-  openCards.push(event.target);
+function isUniqueCard(eventTarget) {
+  return (
+    eventTarget.classList.contains('card') && !openCards.includes(eventTarget)
+  );
+}
+
+function addOpenCard(eventTarget) {
+  eventTarget.classList.toggle('open');
+  eventTarget.classList.toggle('show');
+  openCards.push(eventTarget);
 }
 
 function checkMatch() {
