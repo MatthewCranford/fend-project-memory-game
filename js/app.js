@@ -82,12 +82,13 @@ function shuffle(array) {
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-document.querySelector('.deck').addEventListener('click', () => {
+document.querySelector('.deck').addEventListener('click', event => {
+  eventTarget = event.target;
   if (timerNotStarted) {
     timerNotStarted = false;
     startTimer();
   }
-  checkCard();
+  checkCard(eventTarget);
 });
 
 function startTimer() {
@@ -113,7 +114,7 @@ function displayTime() {
   clock.textContent = `${minutes}:${seconds}`;
 }
 
-function checkCard() {
+function checkCard(eventTarget) {
   const MAX_OPEN_CARDS = 2;
 
   // Prevent cards being checked while timeout in progress
