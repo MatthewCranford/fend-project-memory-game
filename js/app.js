@@ -168,6 +168,7 @@ function addMatch() {
 }
 
 function gameOver() {
+  clearTimeout(timerID);
   updateScorecardText();
   toggleScorecard();
 }
