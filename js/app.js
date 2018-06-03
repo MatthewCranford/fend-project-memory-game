@@ -201,7 +201,7 @@ function resetOpenCards() {
 
 function updateMoves() {
   moves++;
-  document.querySelector('.moves').textContent = moves;
+  document.querySelector('.moves').innerHTML = `Moves ${moves}`;
   updateStars();
 }
 
@@ -253,7 +253,7 @@ function resetCards() {
 
 function resetMoves() {
   moves = 0;
-  document.querySelector('.moves').textContent = moves;
+  document.querySelector('.moves').innerHTML = `Moves ${moves}`;
 }
 
 function resetStars() {
