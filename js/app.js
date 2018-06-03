@@ -168,11 +168,11 @@ function addMatch() {
 }
 
 function gameOver() {
-  updateModalText();
-  toggleModal();
+  updateScorecardText();
+  toggleScorecard();
 }
 
-function updateModalText() {
+function updateScorecardText() {
   const timeElapsed = document.getElementById('timeElapsed');
   const starScore = document.getElementById('starScore');
   const totalMoves = document.getElementById('totalMoves');
@@ -182,10 +182,10 @@ function updateModalText() {
   totalMoves.innerText = `Total moves = ${moves}`;
 }
 
-function toggleModal() {
+function toggleScorecard() {
   document
-    .querySelector('.modal__shadow')
-    .classList.toggle('modal__shadow--hide');
+    .querySelector('.scorecard__shadow')
+    .classList.toggle('scorecard__shadow--hide');
 }
 
 function resetOpenCards() {
@@ -229,10 +229,10 @@ document.querySelector('.restart').addEventListener('click', resetGame);
 function resetGame() {
   if (
     !document
-      .querySelector('.modal__shadow')
-      .classList.contains('modal__shadow--hide')
+      .querySelector('.scorecard__shadow')
+      .classList.contains('scorecard__shadow--hide')
   ) {
-    toggleModal();
+    toggleScorecard();
   }
   resetCards();
   resetMoves();
@@ -271,6 +271,12 @@ function resetTime() {
   clock.textContent = '0:00';
 }
 
-document.getElementById('modal__exit').addEventListener('click', toggleModal);
-document.getElementById('modal__close').addEventListener('click', toggleModal);
-document.getElementById('modal__replay').addEventListener('click', resetGame);
+document
+  .getElementById('scorecard__exit')
+  .addEventListener('click', toggleScorecard);
+document
+  .getElementById('scorecard__close')
+  .addEventListener('click', toggleScorecard);
+document
+  .getElementById('scorecard__replay')
+  .addEventListener('click', resetGame);

@@ -140,10 +140,10 @@ h1 {
 }
 
 /*
- * Styles for the Modal
+ * Styles for the Scorecard
  */
 
-.modal__shadow {
+.scorecard__shadow {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -151,11 +151,11 @@ h1 {
   z-index: 1;
 }
 
-.modal__shadow--hide {
+.scorecard__shadow--hide {
   display: none;
 }
 
-.modal__content {
+.scorecard__content {
   width: 400px;
   max-width: 90%;
   position: absolute;
@@ -166,7 +166,7 @@ h1 {
   transform: translate(-50%, -70%);
 }
 
-.modal__heading {
+.scorecard__heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -174,23 +174,23 @@ h1 {
   padding: 0px 10px;
 }
 
-.modal__stats p {
+.scorecard__stats p {
   margin: 0.5rem 0;
 }
 
-.modal__exit {
+.scorecard__exit {
   font-size: 2.7rem;
   cursor: pointer;
   padding: 0px 10px;
   line-height: 40px;
 }
 
-.modal__exit:hover,
-.modal__exit:focus {
+.scorecard__exit:hover,
+.scorecard__exit:focus {
   color: #6d6d6d;
 }
 
-.modal__stats {
+.scorecard__stats {
   border-bottom: 2px solid #e4e4e4;
   display: flex;
   flex-direction: column;
@@ -198,31 +198,31 @@ h1 {
   padding: 20px 0px;
 }
 
-.modal__options {
+.scorecard__options {
   display: flex;
   justify-content: space-around;
   padding: 20px 0px;
 }
 
-.modal__button {
+.scorecard__button {
   padding: 5px;
   border-radius: 3px;
   border: solid 1px #aaa;
   background-color: #ebebeb;
 }
 
-.modal__button:hover,
-.modal__button:focus {
+.scorecard__button:hover,
+.scorecard__button:focus {
   color: #fff;
   background-color: #757575;
 }
 
-.modal__button--replay {
+.scorecard__button--replay {
   background-color: #1accbd;
 }
 
-.modal__button--replay:hover,
-.modal__button--replay:focus {
+.scorecard__button--replay:hover,
+.scorecard__button--replay:focus {
   background-color: #30867f;
 }
 
