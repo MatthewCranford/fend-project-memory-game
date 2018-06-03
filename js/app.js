@@ -168,9 +168,12 @@ function addMatch() {
 }
 
 function gameOver() {
+  clearTimeout(timerID);
   updateScorecardText();
   toggleScorecard();
 }
+gameOver();
+console.log(clearTimeout(timerID) === true);
 
 function updateScorecardText() {
   const timeElapsed = document.getElementById('timeElapsed');
