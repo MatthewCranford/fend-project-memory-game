@@ -2,22 +2,14 @@
  * Create a list that holds all of your cards
  */
 
-const cards = [
-  'fa-diamond',
+const cardIcons = [
   'fa-diamond',
   'fa-paper-plane-o',
-  'fa-paper-plane-o',
-  'fa-anchor',
   'fa-anchor',
   'fa-bolt',
-  'fa-bolt',
-  'fa-cube',
   'fa-cube',
   'fa-leaf',
-  'fa-leaf',
   'fa-bicycle',
-  'fa-bicycle',
-  'fa-bomb',
   'fa-bomb'
 ];
 
@@ -44,19 +36,20 @@ function initGame() {
 initGame();
 
 function generateNewDeck() {
-  const shuffledCards = shuffle(cards);
+  const doubledCardIcons = cardIcons.concat(cardIcons);
+  const shuffledCardIcons = shuffle(doubledCardIcons);
   const deck = document.querySelector('.deck');
 
-  deck.innerHTML = shuffledCards
-    .map(card => {
-      return generateCardHTML(card);
+  deck.innerHTML = shuffledCardIcons
+    .map(cardIcon => {
+      return generateCardHTML(cardIcon);
     })
     .join('');
 }
 
-function generateCardHTML(card) {
+function generateCardHTML(cardIcon) {
   const cardHTML = `<li class="card">
-  <i class="fa ${card}"></i>
+  <i class="fa ${cardIcon}"></i>
 </li>`;
   return cardHTML;
 }
