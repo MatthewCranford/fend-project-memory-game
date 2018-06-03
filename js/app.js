@@ -94,6 +94,8 @@ function startTimer() {
   function timer() {
     timeInSeconds++;
     displayTime();
+
+    // Hold timer ID with each passing call
     timerID = setTimeout(timer, 1000);
   }
   setTimeout(timer);
@@ -101,6 +103,8 @@ function startTimer() {
 
 function displayTime() {
   const clock = document.querySelector('.clock');
+
+  // Check if seconds is single digit for a prepended "0"
   seconds = (timeInSeconds % 60 < 10
     ? '0' + timeInSeconds % 60
     : timeInSeconds % 60
