@@ -45,7 +45,6 @@ initGame();
 
 function generateNewDeck() {
   const shuffledCards = shuffle(cards);
-  console.log(shuffledCards);
   const deck = document.querySelector('.deck');
 
   deck.innerHTML = shuffledCards
