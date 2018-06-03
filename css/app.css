@@ -117,6 +117,7 @@ h1 {
   width: 345px;
   margin-bottom: 10px;
   display: flex;
+  align-items: center;
 }
 
 .score-panel .clock {
